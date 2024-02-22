@@ -87,7 +87,7 @@ public class Randomizer {
         return obj;
     }
 
-    public void setSeed(long new_seed) {
+    public void SetSeed(long new_seed) {
         seed = new_seed;
     }
 }

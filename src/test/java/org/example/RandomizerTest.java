@@ -18,9 +18,7 @@ class RandomizerTest {
     @Test
     void GetRandomFloat() {
         for (int i = 0; i < 50; i++) {
-//            System.out.println("next");
             float x = randomizer.GetRandomFloat();
-//            System.out.println(x);
             assertAll(() -> assertTrue(x >= 0F),
                     () -> assertTrue(x < 1.0F));
         }
@@ -29,9 +27,7 @@ class RandomizerTest {
     @Test
     void GetRandomIntRandged() {
         for (int i = 1; i < 50; i++) {
-//            System.out.println("next");
             int x = randomizer.GetRandomInt(i, 2 * i);
-//            System.out.println(x);
             assertTrue(x >= i);
             assertTrue(x < 2 * i);
         }
@@ -40,9 +36,7 @@ class RandomizerTest {
     @Test
     void GetRandomFloatRandged() {
         for (int i = 1; i < 50; i++) {
-//            System.out.println("next");
             float x = randomizer.GetRandomFloat(i, 2 * i);
-//            System.out.println(x);
             assertTrue(x >= i);
             assertTrue(x < 2 * i);
         }
@@ -57,10 +51,10 @@ class RandomizerTest {
         MALE, FEMALE
     }
     public static class A {
-        int x1;
-        float x2;
-        private String kek;
-        private Gender gender;
+        int some_int;
+        float some_float;
+        private String some_string;
+        private Gender some_gender;
     };
 
     @Test
