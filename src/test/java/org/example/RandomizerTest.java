@@ -11,12 +11,12 @@ class RandomizerTest {
     Randomizer randomizer = new Randomizer();
 
     @Test
-    void getRandomInt() {
+    void GetRandomInt() {
         System.out.println(randomizer.GetRandomInt());
     }
 
     @Test
-    void getRandomFloat() {
+    void GetRandomFloat() {
         for (int i = 0; i < 50; i++) {
 //            System.out.println("next");
             float x = randomizer.GetRandomFloat();
@@ -27,7 +27,7 @@ class RandomizerTest {
     }
 
     @Test
-    void getRandomIntRandged() {
+    void GetRandomIntRandged() {
         for (int i = 1; i < 50; i++) {
 //            System.out.println("next");
             int x = randomizer.GetRandomInt(i, 2 * i);
@@ -38,7 +38,7 @@ class RandomizerTest {
     }
 
     @Test
-    void getRandomFloatRandged() {
+    void GetRandomFloatRandged() {
         for (int i = 1; i < 50; i++) {
 //            System.out.println("next");
             float x = randomizer.GetRandomFloat(i, 2 * i);
@@ -49,7 +49,7 @@ class RandomizerTest {
     }
 
     @Test
-    void getRandomString() {
+    void GetRandomString() {
         System.out.println(randomizer.GetRandomString());
     }
 
@@ -65,10 +65,10 @@ class RandomizerTest {
 
     @Test
     void instantiateRandomized() {
-        System.out.println("yoy");
-        Object objkek = null;
+        // easy to see changes in debug mode
+        Object some_object = null;
         try {
-            objkek = randomizer.InstantiateRandomized(A.class);
+            some_object = randomizer.InstantiateRandomized(A.class);
         } catch (InstantiationException e) {
             throw new RuntimeException(e);
         } catch (IllegalAccessException e) {
@@ -78,6 +78,5 @@ class RandomizerTest {
         } catch (NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("yay");
     }
 }

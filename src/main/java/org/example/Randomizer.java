@@ -7,20 +7,21 @@ import java.util.Arrays;
 
 public class Randomizer {
     private long seed = 1;
-    private final long a = 0x5DEECE66DL;
-    private final long c = 0xBL;
-    private final long m = (1L << 48) - 1;
+    private final long multiplier = 0x5DEECE66DL;
+    private final long increment = 0xBL;
+    private final long modulus = (1L << 48) - 1;
     private final String letters_pool = "abcdefjhijklmnopqrstuvwxyz";
 
     // a, b, m from java util random, >> (48 - bits) == you get a number of {$bits} length
-    public int next(int bit) {
-        seed = (a * seed + c) & m;
-//        System.out.println(seed);
+    // & (m-1) instead of % m, because m is power of to, so m - 1 is consecutive ones
+    // also no problem with negative numbers
+    public int Next(int bit) {
+        seed = (multiplier * seed + increment) & modulus;
         return (int) (seed >> (48 - bit));
     }
 
     public int GetRandomInt() {
-        return next(32);
+        return Next(32);
     }
 
 
@@ -31,25 +32,25 @@ public class Randomizer {
     }
 
     public short GetRandomShort() {
-        return (short) next(16);
+        return (short) Next(16);
     }
 
     public byte GetRandomByte() {
-        return (byte) next(4);
+        return (byte) Next(4);
     }
 
     public boolean GetRandomBool() {
-        return next(1) == 1;
+        return Next(1) == 1;
     }
 
     // generate higher and lower bits separately
     public long GetRandomLong() {
-        return ((long) next(32) << 32) + next(32);
+        return ((long) Next(32) << 32) + Next(32);
     }
 
     // turns 0..2^24 int range to 0.0f..1.0f
     public float GetRandomFloat() {
-        return next(Float.PRECISION) / ((float) (1 << Float.PRECISION));
+        return Next(Float.PRECISION) / ((float) (1 << Float.PRECISION));
     }
 
     public float GetRandomFloat(float from, float to) {
