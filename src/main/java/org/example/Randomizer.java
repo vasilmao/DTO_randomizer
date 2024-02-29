@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Random;
 
 public class Randomizer {
     /**
@@ -158,9 +157,9 @@ public class Randomizer {
      * value if type is familiar
      *
      */
-    public Object instantiateRandomized(Class<?> cls) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    public <T> T instantiateRandomized(Class<T> cls) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 
-        Object return_object =  cls.getDeclaredConstructor().newInstance();
+        T return_object =  cls.getDeclaredConstructor().newInstance();
         Field[] fields = cls.getDeclaredFields();
         for (Field field : fields) {
             System.out.println(field.getType().getSimpleName());
