@@ -11,40 +11,40 @@ class RandomizerTest {
     Randomizer randomizer = new Randomizer();
 
     @Test
-    void GetRandomInt() {
-        System.out.println(randomizer.GetRandomInt());
+    void getRandomInt() {
+        System.out.println(randomizer.getRandomInt());
     }
 
     @Test
-    void GetRandomFloat() {
+    void getRandomFloat() {
         for (int i = 0; i < 50; i++) {
-            float x = randomizer.GetRandomFloat();
+            float x = randomizer.getRandomFloat();
             assertAll(() -> assertTrue(x >= 0F),
                     () -> assertTrue(x < 1.0F));
         }
     }
 
     @Test
-    void GetRandomIntRandged() {
+    void getRandomIntRandged() {
         for (int i = 1; i < 50; i++) {
-            int x = randomizer.GetRandomInt(i, 2 * i);
+            int x = randomizer.getRandomInt(i, 2 * i);
             assertTrue(x >= i);
             assertTrue(x < 2 * i);
         }
     }
 
     @Test
-    void GetRandomFloatRandged() {
+    void getRandomFloatRandged() {
         for (int i = 1; i < 50; i++) {
-            float x = randomizer.GetRandomFloat(i, 2 * i);
+            float x = randomizer.getRandomFloat(i, 2 * i);
             assertTrue(x >= i);
             assertTrue(x < 2 * i);
         }
     }
 
     @Test
-    void GetRandomString() {
-        System.out.println(randomizer.GetRandomString());
+    void getRandomString() {
+        System.out.println(randomizer.getRandomString());
     }
 
     public enum Gender {
@@ -55,14 +55,19 @@ class RandomizerTest {
         float some_float;
         private String some_string;
         private Gender some_gender;
-    };
+    }
+
+    @Test
+    void seedSetter() {
+        randomizer.setSeed(5);
+    }
 
     @Test
     void instantiateRandomized() {
         // easy to see changes in debug mode
         Object some_object = null;
         try {
-            some_object = randomizer.InstantiateRandomized(A.class);
+            some_object = randomizer.instantiateRandomized(A.class);
         } catch (InstantiationException e) {
             throw new RuntimeException(e);
         } catch (IllegalAccessException e) {
