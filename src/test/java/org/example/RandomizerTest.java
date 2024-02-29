@@ -65,7 +65,7 @@ class RandomizerTest {
     @Test
     void instantiateRandomized() {
         // easy to see changes in debug mode
-        Object some_object = null;
+        A some_object = null;
         try {
             some_object = randomizer.instantiateRandomized(A.class);
         } catch (InstantiationException e) {

@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>java_task1</artifactId>
+    <groupId>ru.ssu.solostovskiy</groupId>
+    <artifactId>java.randomizer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
